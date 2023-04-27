@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <title>Facial Recognition</title>
+  
+</head>
+<body>
+  <style>
+    body{
+            background-color: #5e719e;
+            background-image: linear-gradient(#3bc22f79, #adb6cb);
+            background-repeat: no-repeat;
+            height: 712px;
+        }   
+    nav{
+      background-color: #323a4d;
+    }
+  </style>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <nav class="navbar sticky-top navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href=" {{url_for('home')}} " style="color: white;background-color: transparent;text-decoration: none;">GROUP-9</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=" {{url_for('home')}} " style="color: white;background-color: transparent;text-decoration: none;" >Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="criminal_rec" style="color: white;background-color: transparent;text-decoration: none;">Upload Criminal Dataset</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="missing_rec" style="color: white;background-color: transparent;text-decoration: none;">Upload Missing people Dataset</a>
+              </li>
+            </div>
+          </div>
+        </nav>
+  
+        
+    <br>
+
+    
+      <form class="row row-cols-lg-auto g-3 align-items-center dropzone" action="" enctype="multipart/form-data" method="POST">
+            <div class="card text-center container" style="background-color: aliceblue; width: auto;">
+              <div class="card-header container" style="font-family: Georgia, serif; color:white; background-color:#323a4d;">
+                <h2>Upload the image to be searched</h2>
+              </div>
+              <div class="card-body">
+                <input type="file" name="pic"/>
+                <input type="submit" class="btn btn-outline-dark" data-bs-dismiss="alert" aria-label="Close" value="Upload the file to be checked" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                </button>
+                <br>
+              
+            
+                {% block content %}
+              <div class="container">
+                {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning fixed-bottom container">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+                
+                  {% if message == 'Image uploaded' %}
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                      <br>
+                      <br>
+                      <a href = "image_check" class="btn btn-outline-dark">Click here to check the image</a>
+                      <br>
+                      <br>
+                      <div class="spinner-grow text-dark" role="status" aria-hidden="true"></div>
+                      </div>
+                    
+                  {% endif %}
+                {% endfor %}
+              {% block page_content %}{% endblock %}
+            </div> 
+            {% endblock %}
+            </div>
+          </div>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <div class="container">
+      <li class="list-group-item list-group-item-warning">
+        <h4>Disclaimer:</h4>
+        Uploaded image should be of formats .jpg, .png, .jpeg.</li>
+    </div>
+  
+  
+</body>
+</html>

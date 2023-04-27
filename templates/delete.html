@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <title>Facial Recognition</title>
+  
+</head>
+<body>
+    <style>
+        body{
+            background-color: #5e719e;
+            background-image: linear-gradient(#3bc22f79, #adb6cb);
+            background-repeat: no-repeat;
+            height: 712px;
+        }
+        nav{
+          background-color: #323a4d;
+        }
+      </style>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+
+          <nav class="navbar sticky-top navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href=" {{url_for('home')}} " style="color: white;background-color: transparent;text-decoration: none;">GROUP-9</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href=" {{url_for('home')}} " style="color: white;background-color: transparent;text-decoration: none;" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="criminal_rec" style="color: white;background-color: transparent;text-decoration: none;">Upload Criminal Dataset</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="missing_rec" style="color: white;background-color: transparent;text-decoration: none;">Upload Missing people Dataset</a>
+                    </li>
+                  </div>
+                </div>
+              </nav>
+        
+    <br>
+
+    
+      
+    <div class="card text-center container" style="background-color: aliceblue; width: auto;">
+        <div class="card-header container" style="font-family: Georgia, serif; color:white; background-color:#323a4d;">
+          <h2>Choose dataset to delete file from</h2>
+        </div>
+        <div class="card-body">
+            <a href="deletefile_from_missing_rec" id="features_btn" class="btn btn-outline-dark" data-bs-dismiss="alert" aria-label="Close" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete from Missing People dataset</a>
+            <br>
+            <br>
+            <a href="deletefile_from_criminal_rec" id="features_btn" class="btn btn-outline-dark" data-bs-dismiss="alert" aria-label="Close" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Delete from Criminals dataset</a>
+            <br>
+        </div>
+    </div>
+  
+  
+  
+  
+</body>
+</html>
